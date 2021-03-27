@@ -14,24 +14,25 @@
         <section class="form login">
             <header>Chatkuy | Realtime Chat App</header>
             <form action="#">
-                <div class="error-txt">This is error message!</div>
+                <div class="error-txt"></div>
                 <div class="field input">
-                    <label for="email">Email Address</label>
-                    <input type="text" id="email" placeholder="Enter your email address">
+                    <label>Email Address</label>
+                    <input type="text" name="email" placeholder="Enter your email address">
                 </div>
                 <div class="field input">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter new password">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter new password">
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="field button">
                     <input type="submit" value="Continue to Chat">
                 </div>
             </form>
-            <div class="link">Not yet signed up? <a href="#">Signup now</a></div>
+            <div class="link">Not yet signed up? <a href="index.php">Signup now</a></div>
         </section>
     </div>
 
     <script src="asset/javascript/pass-show-hide.js"></script>
+    <script src="asset/javascript/login.js"></script>
 </body>
 </html>

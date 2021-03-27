@@ -13,39 +13,40 @@
     <div class="wrapper">
         <section class="form signup">
             <header>Chatkuy | Realtime Chat App</header>
-            <form action="#">
-                <div class="error-txt">This is error message!</div>
+            <form action="#" enctype="multipart/form-data" autocomplete="off">
+                <div class="error-txt"></div>
                 <div class="name-details">
                     <div class="field input">
-                        <label for="firstname">First Name</label>
-                        <input type="text" id="firstname" placeholder="First Name">
+                        <label>First Name</label>
+                        <input type="text" name="fname" placeholder="First Name" required>
                     </div>
                     <div class="field input">
-                        <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname" placeholder="Last Name">
+                        <label>Last Name</label>
+                        <input type="text" name="lname" placeholder="Last Name" required>
                     </div>
                 </div>
                 <div class="field input">
-                    <label for="email">Email Address</label>
-                    <input type="text" id="email" placeholder="Enter your email address">
+                    <label>Email Address</label>
+                    <input type="text" name="email" placeholder="Enter your email address" required>
                 </div>
                 <div class="field input">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter new password">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter new password" required>
                     <i class="fas fa-eye"></i>
                 </div>
                 <div class="field image">
-                    <label for="image">Select Image</label>
-                    <input type="file" id="image">
+                    <label>Select Image</label>
+                    <input type="file" name="image" required>
                 </div>
                 <div class="field button">
                     <input type="submit" value="Continue to Chat">
                 </div>
             </form>
-            <div class="link">Already signed up? <a href="#">Login now</a></div>
+            <div class="link">Already signed up? <a href="login.php">Login now</a></div>
         </section>
     </div>
 
     <script src="asset/javascript/pass-show-hide.js"></script>
+    <script src="asset/javascript/signup.js"></script>
 </body>
 </html>
