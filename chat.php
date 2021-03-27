@@ -1,33 +1,39 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['unique_id'])){
+        header("location: login.php");
+    }
+    include_once("controller/config.php");
+    $user_id = mysqli_real_escape_string($conn,$_GET['user_id']);
+    $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
+    if(mysqli_num_rows($sql)>0){
+        $row = mysqli_fetch_assoc($sql);
+    }
+?>
 <?php include_once("components/header.php") ?>
 <body>
-<div class="wrapper">
-    <section class="chat-area">
-        <header>
-            <a href="#" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-            <img src="https://avatars.githubusercontent.com/u/45931684?v=4" alt="">
-            <div class="details">
-                <span>Iqbal</span>
-                <p>Active now</p>
-            </div>
-        </header>
-        <div class="chat-box">
-            <div class="chat outgoing">
+    <div class="wrapper">
+        <section class="chat-area">
+            <header>
+                <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+                <img src="controller/storage/<?= $row['img'] ?>" alt="">
                 <div class="details">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus corporis deleniti, doloribus eveniet ipsam magnam molestias velit voluptatibus. Numquam, pariatur ullam. Delectus error iste nesciunt nisi repudiandae, sint soluta voluptates?</p>
+                    <span><?= $row['fname'] . " " . $row['lname'] ?></span>
+                    <p><?= $row['status'] ?></p>
                 </div>
+            </header>
+            <div class="chat-box">
+
             </div>
-            <div class="chat incoming">
-                <img src="https://avatars.githubusercontent.com/u/45931684?v=4" alt="">
-                <div class="details">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, magni voluptatibus! Dolorem ea eaque esse exercitationem explicabo molestias nesciunt quibusdam sapiente voluptatibus! Dignissimos doloribus enim, molestiae nam odit quod totam.</p>
-                </div>
-            </div>
-        </div>
-        <form action="#" class="typing-area">
-            <input type="text" placeholder="Type a message here...">
-            <button><i class="fab fa-telegram-plane"></i></button>
-        </form>
-    </section>
-</div>
+            <form action="#" class="typing-area" autocomplete="off">
+                <input hidden type="text" name="outgoing_id" value="<?= $_SESSION['unique_id']; ?>">
+                <input hidden type="text" name="incoming_id" value="<?= $user_id; ?>">
+                <input type="text" name="message" class="input-field" placeholder="Type a message here...">
+                <button><i class="fab fa-telegram-plane"></i></button>
+            </form>
+        </section>
+    </div>
+
+    <script src="asset/javascript/chat.js"></script>
 </body>
 </html>
